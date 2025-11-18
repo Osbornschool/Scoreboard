@@ -13,7 +13,7 @@ public class Main {
         Scanner s = new Scanner(f);
         int counter = 0;
         while (s.hasNext()){
-
+        if ()
         }
             return 0;
     }
