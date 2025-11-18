@@ -7,15 +7,14 @@ public class Main {
         System.out.println();
     }
     public static int read() throws FileNotFoundException {
-        File f = new File("Guesses.txt");
+        String[] teams = new String[] {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+        int[] points = new int[] {0,0,0,0,0,0,0};
+        File f = new File("Scoreboard.txt");
         Scanner s = new Scanner(f);
         int counter = 0;
-        while (s.hasNext()) {
-            while (s.nextInt() != 0){
-
-            }
+        while (s.hasNext()){
 
         }
-        return counter;
+            return 0;
     }
 }
