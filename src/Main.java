@@ -14,7 +14,7 @@ public class Main {
     }
     public static int read() throws FileNotFoundException {
         String[] teams = new String[] {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
-        int[] points = new int[] {0,0,0,0,0,0,0};
+        int[] points = new int[7];
         File f = new File("Scoreboard.txt");
         Scanner s = new Scanner(f);
         int counter = 0;
