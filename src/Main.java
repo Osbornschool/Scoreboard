@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
 
 public class Main {
 
@@ -10,10 +9,17 @@ public class Main {
     String Team2 = "PlaceHolder2";
 
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println();
+//        ArrayList<String> teams = new ArrayList<String>();
+//        System.out.println(teams);
+//        teams.add("Red");
+//        teams.add("Orange");
+//        System.out.println(teams);
+//        teams.remove(0);
+//        System.out.println(teams);
     }
     public static int read() throws FileNotFoundException {
         String[] teams = new String[] {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+        System.out.println(teams[0]);
         int[] points = new int[7];
         File f = new File("Scoreboard.txt");
         Scanner s = new Scanner(f);
@@ -22,9 +28,8 @@ public class Main {
             String Team1 = s.next();
             String Team2 = s.next();
             while (s.next().equals(String.valueOf(s.nextInt()))){
-                for(int i = 0; i < 60; i++){
-                    if (Team1.equals(teams.get())
-                        iterator
+                for(int i = 0; i < teams.length; i++){
+
             }
 
             }
