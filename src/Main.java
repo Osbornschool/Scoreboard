@@ -29,7 +29,9 @@ public class Main {
             String Team2 = s.next();
             while (s.next().equals(String.valueOf(s.nextInt()))){
                 for(int i = 0; i < teams.length; i++){
+                    if (teams[i].equals(s.next())){
 
+                    }
             }
 
             }
