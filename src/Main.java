@@ -1,41 +1,44 @@
 import java.io.FileNotFoundException;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
-    String Team1 = "PlaceHolder";
-    String Team2 = "PlaceHolder2";
-
     public static void main(String[] args) throws FileNotFoundException {
-//        ArrayList<String> teams = new ArrayList<String>();
-//        System.out.println(teams);
-//        teams.add("Red");
-//        teams.add("Orange");
-//        System.out.println(teams);
-//        teams.remove(0);
-//        System.out.println(teams);
-    }
-    public static int read() throws FileNotFoundException {
-        String[] teams = new String[] {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
-        System.out.println(teams[0]);
-        int[] points = new int[7];
+        String[] teams = new String[]{"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+        int[] wins = new int[7];
+
         File f = new File("Scoreboard.txt");
         Scanner s = new Scanner(f);
-        int counter = 0;
-        while (s.hasNext()){
-            String Team1 = s.next();
-            String Team2 = s.next();
-            while (s.next().equals(String.valueOf(s.nextInt()))){
-                for(int i = 0; i < teams.length; i++){
-                    if (teams[i].equals(s.next())){
 
-                    }
+        while (s.hasNext()) {
+            String team1 = s.next();
+            String team2 = s.next();
+            Scoreboard game = new Scoreboard(team1, team2);
+            while (s.hasNextInt()) {
+                int pointsEarned = s.nextInt();
+                game.recordPlay(pointsEarned);
             }
-
+            int score1 = game.getScore1();
+            int score2 = game.getScore2();
+            if (score1 > score2) {
+                int index = findTeamIndex(teams, team1);
+                wins[index]++;
+            } else if (score2 > score1) {
+                int index = findTeamIndex(teams, team2);
+                wins[index]++;
             }
         }
-            return 0;
+        s.close();
+        for (int i = 0; i < teams.length; i++) {
+            System.out.println(teams[i] + ": " + wins[i]);
+        }
+    }
+    public static int findTeamIndex(String[] arr, String name) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(name)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

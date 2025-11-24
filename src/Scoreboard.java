@@ -1,25 +1,37 @@
 public class Scoreboard {
 
-    public int team1Points = 0;
-    public int team2Points = 0;
-    public String team1 = "placeholder";
-    public String team2 = "placeholder";
-    public boolean isTeam1Active = true;
+    public int score1;
+    public int score2;
+    public String team1;
+    public String team2;
+    public boolean team1Active;
 
-    public Scoreboard(String team1, String team2){
-     this.team1 = team1;
-     this.team2 = team2;
+    public Scoreboard(String t1, String t2) {
+        team1 = t1;
+        team2 = t2;
+        score1 = 0;
+        score2 = 0;
+        team1Active = true;
     }
-
-    public void recordPlay(int a){
-        if (isTeam1Active)
-            team1Points += a;
-        else
-            team2Points += a;
+    public void recordPlay(int points) {
+        if (points > 0) {
+            if (team1Active)
+                score1 += points;
+             else
+                score2 += points;
+        } else
+            team1Active = !team1Active;
     }
 
     public String getscore(){
-        return team1Points + " - team 1" + team2Points + " - team 2";
+        return score1 + " - team 1" + score2 + " - team 2";
+    }
 
+    public int getScore1() {
+        return score1;
+    }
+
+    public int getScore2() {
+        return score2;
     }
 }
